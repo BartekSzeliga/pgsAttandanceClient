@@ -1,0 +1,5 @@
+[0320/114002.420:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: Trwa zamykanie potoku. (0xE8)
+[0320/133106.746:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: Trwa zamykanie potoku. (0xE8)
+[0320/133515.119:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: Trwa zamykanie potoku. (0xE8)
+[0320/134354.112:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: Trwa zamykanie potoku. (0xE8)
+[0320/162629.544:ERROR:exception_handler_server.cc(524)] ConnectNamedPipe: Trwa zamykanie potoku. (0xE8)
