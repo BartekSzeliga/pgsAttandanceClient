@@ -15,7 +15,7 @@
         views: {
           'content': {
             templateUrl: 'app/routes/panel/activities/activities.html',
-            controller: '',
+            controller: 'ActivitiesController as vm',
             data: {
               pageTitle: 'Activities'
             },

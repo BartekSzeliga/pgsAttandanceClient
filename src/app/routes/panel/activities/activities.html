@@ -1,11 +1,119 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 text-center">
-      <h1>Zajęcia</h1>
-    </div>
+
+
+  <div>
+    <script type="text/ng-template" id="CreateActivity.html">
+      <div class="modal-header">
+        <h3 class="modal-title">Dodaj zajęcie</h3>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="activityName">Nazwa Zajęć</label>
+          <input type="text" class="form-control" id="activityName" data-ng-model="vm.formData.activityName">
+
+          <label for="activityDescription">Opis</label>
+          <input type="text" class="form-control" id="activityDescription" data-ng-model="vm.formData.activityDescription">
+
+          <label for="activityDate">Czas rozpoczęcia</label>
+          <input type="datetime-local" type="text" class="form-control" id="activityDate" data-ng-model="vm.formData.activityDate">
+
+          <label for="activityPlace">Miejsce rozpoczęcia</label>
+          <input type="text" class="form-control" id="activityPlace" data-ng-model="vm.formData.activityPlace">
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+          <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+      </div>
+    </script>
+
   </div>
 
+  <div>
+    <script type="text/ng-template" id="EditActivity.html">
+      <div class="modal-header">
+        <h3 class="modal-title">Edytuj użytkownika</h3>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="activityNameEdit">Nazwa Zajęć</label>
+          <input type="text" class="form-control" id="activityNameEdit" data-ng-model="vm.formData.activityName">
+
+          <label for="activityDescriptionEdit">Opis</label>
+          <input type="text" class="form-control" id="activityDescriptionEdit" data-ng-model="vm.formData.activityDescription">
+
+          <label for="activityDateEdit">Czas rozpoczęcia</label>
+          <input type="datetime-local" type="text" class="form-control" id="activityDateEdit" data-ng-model="vm.formData.activityDate">
+
+          <label for="activityPlaceEdit">Miejsce rozpoczęcia</label>
+          <input type="text" class="form-control" id="activityPlaceEdit" data-ng-model="vm.formData.activityPlace">
+
+        </div>
 
 
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+          <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+      </div>
+    </script>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 text-center">
+          <h1>Zajęcia</h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <h2>Zajęcia</h2>
+
+        <div>
+          <button type="button" class="btn btn-primary" ng-click="vm.open()">Dodaj zajęcie</button>
+        </div>
+        <div>
+          <p><input type="text" ng-model="test" style="float: right" placeholder="Znajdź Użytkownika"></p>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Nazwa zajęć</th>
+            <th>Opis</th>
+            <th>Czes rozpoczęcia</th>
+            <th>Miejsce Rozpoczęcia</th>
+
+          </tr>
+
+          <tr ng-repeat="row in vm.activities  ">
+
+            <td data-title="'activity' " sortable="'activity'">{{row.activityName}}</td>
+            <td data-title="'acttivityDescription' " sortable="'acttivityDescription'">{{row.activityDescription}}</td>
+            <td data-title="'activityDate' " sortable="'activityDate'">{{row.activityDate | customDate | date:'MM/dd/yyyy  h:mma'}}</td>
+            <td data-title="'activityPlace' " sortable="'activityPlace'">{{row.activityPlace }}</td>
+
+
+
+            <td>
+              <a ng-click="vm.edit(row)" class="btn btn-primary">Edytuj</a>
+              <a ng-click="vm.delete(row.id)" class="btn btn-primary">Usuń</a>
+            </td>
+          </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+        <pagination total-items="totalItems" ng-model="currentPage"
+                    max-size="5" boundary-links="true"
+                    items-per-page="numPerPage" class="pagination-sm">
+        </pagination>
+      </div>
+
+
+    </div>
+  </div>
 </div>
